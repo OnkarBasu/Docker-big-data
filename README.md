@@ -1,10 +1,10 @@
-# 📈 Stock Price Fetcher
+#  Stock Price Fetcher
 
 A Python command-line tool that pulls real-time stock data from Yahoo Finance and prints a clean 7-day summary report in the terminal. The whole thing is packaged into a Docker container so it runs the same way on any machine.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 stockfetcher/
@@ -16,7 +16,7 @@ stockfetcher/
 
 ---
 
-## 🧠 What It Does
+##  What It Does
 
 You pass stock ticker symbols as arguments when running the script. For each ticker, it fetches the last 7 days of historical price data from Yahoo Finance, calculates some useful stats, and prints everything in a neat table.
 
@@ -28,12 +28,12 @@ You pass stock ticker symbols as arguments when running the script. For each tic
 
 ---
 
-## 🐍 The Python Code (`main.py`)
+##  The Python Code (`main.py`)
 
 The script is split into three functions:
 
 **`fetch_stock_data(ticker)`**
-Does all the heavy lifting. It uses `yfinance` to pull 7 days of historical data for a given ticker, then calculates the summary stats. If anything goes wrong (bad ticker, network issue, rate limit), it catches the error, prints a message, and moves on without crashing.
+ It uses `yfinance` to pull 7 days of historical data for a given ticker, then calculates the summary stats. If anything goes wrong (bad ticker, network issue, rate limit), it catches the error, prints a message, and moves on without crashing.
 
 **`print_report(summaries)`**
 Takes all the results and prints them as a formatted table using `tabulate`. Also shows the exact time the report was generated.
@@ -49,23 +49,13 @@ Yahoo Finance limits how many requests you can make in a short period. If you fe
 
 ---
 
-## 📦 Dependencies (`requirements.txt`)
+##  Dependencies (`requirements.txt`)
 
 ```
 yfinance==0.2.61
 pandas==2.2.2
 tabulate==0.9.0
-requests==2.31.0
-```
 
-| Library | What it does |
-|---------|-------------|
-| `yfinance` | Fetches stock data from Yahoo Finance |
-| `pandas` | Handles the data internally |
-| `tabulate` | Prints the results as a clean terminal table |
-| `requests` | Handles HTTP requests under the hood |
-
----
 
 ## 🐳 Docker
 
