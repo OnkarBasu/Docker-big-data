@@ -104,7 +104,7 @@ pip install -r requirements.txt
 
 Run the script with your chosen tickers:
 ```bash
-python main.py AAPL TSLA GOOGL MSFT AMZN
+python main.py AAPL 
 ```
 
 ---
@@ -118,7 +118,7 @@ docker build -t stock-fetcher .
 
 **Run the container:**
 ```bash
-docker run --rm stock-fetcher python main.py AAPL TSLA GOOGL MSFT AMZN
+docker run --rm stock-fetcher python main.py AAPL 
 ```
 
 `--rm` just means the container gets deleted automatically after it finishes running, keeping things clean.
