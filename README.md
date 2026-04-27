@@ -157,18 +157,4 @@ The tag `v1.0` is just a version label. Without a tag Docker defaults to `latest
 
 ---
 
-## 🛠️ Useful Docker Commands
 
-| Command | What it does |
-|---------|-------------|
-| `docker build -t name .` | Build an image from the Dockerfile |
-| `docker run --rm name` | Run a container and delete it after it exits |
-| `docker images` | List all images on your machine |
-| `docker ps -a` | List all containers including stopped ones |
-| `docker logs <container>` | See what a container printed |
-| `docker rmi name` | Delete an image |
-| `docker system prune` | Clean up unused images and containers |
-| `docker login` | Log in to Docker Hub |
-| `docker tag name user/name:v1.0` | Tag an image for Docker Hub |
-| `docker push user/name:v1.0` | Upload image to Docker Hub |
-| `docker pull user/name:v1.0` | Download image from Docker Hub |
