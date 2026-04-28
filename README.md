@@ -140,7 +140,7 @@ def main():
     print_report(summaries)
 ```
 
-`sys.argv[1:]` grabs everything typed after `python main.py`. The `.upper()` call means you can type `aapl` or `AAPL` and it works either way. The `time.sleep(12)` pause is there because Alpha Vantage's free tier only allows 5 requests per minute — without the pause it would hit the limit and fail.
+`sys.argv[1:]` grabs everything typed after `python main.py`. The `.upper()` call means we can type `aapl` or `AAPL` and it works either way. The `time.sleep(12)` pause is there because Alpha Vantage's free tier only allows 5 requests per minute — without the pause it would hit the limit and fail.
 
 ---
 
@@ -168,9 +168,9 @@ We switched from `yfinance` to Alpha Vantage because `yfinance` was blocking req
 
 ## 🔑 API Key Setup
 
-This project uses the [Alpha Vantage API](https://www.alphavantage.co/support/#api-key). You can get a free API key in under a minute.
+This project uses the [Alpha Vantage API](https://www.alphavantage.co/support/#api-key). We have generated a free API key in Vantage which will alloqw us to generate a stock summary report for past 7 days.
 
-Once you have it, open `main.py` and replace this line at the top:
+Once we have it, open `main.py` and replace this line at the top:
 ```python
 API_KEY = "YOUR_API_KEY_HERE"
 ```
@@ -186,7 +186,7 @@ API_KEY = "ABC123XYZ"
 
 ### What is Docker?
 
-Docker packages your app and all its dependencies into a container. It runs identically on any machine — no need to worry about Python versions or whether the other person has the right libraries installed.
+Docker packages our app and all its dependencies into a container. It runs identically on any machine — no need to worry about Python versions or whether the other person has the right libraries installed.
 
 - **Image** — the packaged blueprint of your app (built from the Dockerfile)
 - **Container** — a running instance of that image
@@ -198,7 +198,7 @@ Docker packages your app and all its dependencies into a container. It runs iden
 ### The Dockerfile
 
 ```dockerfile
-# Start from an official lightweight Python image
+# Start from an  lightweight Python image
 FROM python:3.11-slim
 
 # Set the working directory inside the container
@@ -215,7 +215,7 @@ COPY main.py .
 CMD ["python", "main.py", "AAPL"]
 ```
 
-`requirements.txt` is copied and installed before `main.py` on purpose. Docker caches each step as a layer, so if you only change `main.py`, it skips reinstalling dependencies and rebuilds much faster.
+`requirements.txt` is copied and installed before `main.py` on purpose. Docker caches each step as a layer, so if we only change `main.py`, it skips reinstalling dependencies and rebuilds much faster.
 
 ---
 
@@ -281,18 +281,4 @@ The `:v2.0` is a version label. We moved to v2.0 after switching from `yfinance`
 
 ---
 
-## 🛠️ Useful Docker Commands
 
-| Command | What it does |
-|---------|-------------|
-| `docker build -t name .` | Build an image from the Dockerfile |
-| `docker run --rm name` | Run a container and delete it after it exits |
-| `docker images` | List all images on your machine |
-| `docker ps -a` | List all containers including stopped ones |
-| `docker logs <container>` | See what a container printed |
-| `docker rmi name` | Delete a local image |
-| `docker system prune` | Clean up unused images and containers |
-| `docker login` | Log in to Docker Hub |
-| `docker tag name user/name:v2.0` | Tag an image for Docker Hub |
-| `docker push user/name:v2.0` | Upload image to Docker Hub |
-| `docker pull user/name:v2.0` | Download image from Docker Hub |
